@@ -10,7 +10,6 @@ import java.awt.*;
 
 public class Main extends JFrame {
 
-
     public Main() {
         JTextArea gameTitle = new JTextArea("Life Game");
         JPanel gameBoard = new GameBoard();
