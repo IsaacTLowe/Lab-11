@@ -20,7 +20,7 @@ public class GameLogic implements Runnable{
         while (running) {
             step();
             try {
-                Thread.sleep(300); // control speed of generations
+                Thread.sleep(300); 
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
@@ -80,18 +80,15 @@ public class GameLogic implements Runnable{
     }
     public int getCol(int x) {
         
-        int squareWidth = width / cols;
-        int startX = (width - (squareWidth * cols)) / 2;
-        
-        int col = (x - 0) / squareWidth; // use same startX as GameBoard
+        int squareWidth = width / cols;        
+        int col = x / squareWidth; 
         if (col < 0 || col >= cols) return -1;
         return col;
     }
 
     public int getRow(int y) {
         int squareHeight = height / rows;
-        int startY = (height - (squareHeight * rows)) / 2;
-        int row = (y - 0) / squareHeight; // use same startY as GameBoard
+        int row = y / squareHeight; 
         if (row < 0 || row >= rows) return -1;
         return row;
     }

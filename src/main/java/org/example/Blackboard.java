@@ -1,8 +1,6 @@
 package org.example;
 
 import java.beans.PropertyChangeSupport;
-import java.awt.*;
-import javax.swing.*;
 import java.util.*;
 /**
  * Acts as the database for the game; keeps track of LifeSquares status and sends updates to any observers
@@ -48,7 +46,7 @@ public class Blackboard extends PropertyChangeSupport {
     }
 
     public void setLifeSquare(int row, int col, boolean status){
-        grid.get(row).get(col).setAlive(status);
+        getGridAt(row, col).setAlive(status);
         Object[] changeInfo = {row, col};
         firePropertyChange("Box Status Changed", null, changeInfo);
     }

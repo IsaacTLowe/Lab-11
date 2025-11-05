@@ -1,11 +1,3 @@
-
-
-/**
- * An object that keeps track of if it's alive or dead (boolean)
- * @author Amelia Harris and Isaac Lowe
- * @version 1.0
- */
-
 package org.example;
 import java.awt.*;
 
