@@ -3,6 +3,12 @@ package org.example;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Controller class for Main, for this version just the start button
+ * @author Amelia Harris and Isaac Lowe
+ * @version 1.3
+ */
+
 public class MainController implements ActionListener {
     private Thread gameThread;
     private GameLogic logic;

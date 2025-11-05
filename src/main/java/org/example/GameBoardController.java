@@ -5,7 +5,7 @@ import java.awt.event.MouseListener;
 /**
  * Handles mouse clicks for the squares
  * @author Amelia Harris and Isaac Lowe
- * @version 1.0
+ * @version 1.3
  */
 
 public class GameBoardController implements MouseListener {

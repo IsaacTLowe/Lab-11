@@ -6,7 +6,7 @@ import java.awt.*;
 /**
  * Displays a game board, Title, and start button
  * @author Amelia Harris and Isaac Lowe
- * @version 1.2
+ * @version 1.3
  */
 
 public class Main extends JFrame {

@@ -7,7 +7,7 @@ import java.util.*;
 /**
  * Acts as the database for the game; keeps track of LifeSquares status and sends updates to any observers
  * @author Amelia Harris and Isaac Lowe
- * @version 1.0
+ * @version 1.3
  */
 public class Blackboard extends PropertyChangeSupport {
 

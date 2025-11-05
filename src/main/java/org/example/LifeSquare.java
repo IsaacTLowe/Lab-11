@@ -9,6 +9,12 @@
 package org.example;
 import java.awt.*;
 
+/**
+ * Updates whether a square is alive (yellow) or dead (gray)
+ * @author Amelia Harris and Isaac Lowe
+ * @version 1.3
+ */
+
 public class LifeSquare {
     private boolean isAlive;
     private Color lifeColor;
