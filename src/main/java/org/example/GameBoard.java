@@ -12,47 +12,52 @@ import java.beans.PropertyChangeListener;
 
 public class GameBoard extends JPanel implements PropertyChangeListener {
 
-    public GameBoard(){
-        GridLayout gridLayout = new GridLayout(10, 10);
-        setLayout(gridLayout);
+    // Grid dimensions
+    private final int cols = 80;
+    private final int rows = 100;
+    private final int width = 1000;
+    private final int height = 800;
+
+    public GameBoard() {
         setBackground(Color.GRAY);
     }
-
     @Override
-    public void propertyChange(PropertyChangeEvent evt) {
-        
-    }
-     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        drawBoard(g);
-    }
-    private void drawBoard(Graphics g) {
 
-        int panelWidth = 1000;
-        int panelHeight = 800;
-        int cols = 100;
-        int rows = 80;
-        int squareWidth = panelWidth / cols;
-        int squareHeight = panelHeight / rows;
+        int squareWidth = width / cols;
+        int squareHeight = height / rows;
 
-        for (int i = 0; i < cols; i++) {
-            for (int j = 0; j < rows; j++) {
-                int x =  i * squareWidth;
-                int y =  j * squareHeight;
+        // Compute offsets to center grid if panel size not perfectly divisible
+        int startX = (width - (squareWidth * cols)) / 2;
+        int startY = (height - (squareHeight * rows)) / 2;
 
-                paintLifeSquare(x,y, Color.GRAY, g, squareWidth, squareHeight);
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+                int x = startX + col * squareWidth;
+                int y = startY + row * squareHeight;
+
+                Color color = Blackboard.getInstance().getGridAt(row, col).getColor();
+                paintLifeSquare(x, y, color, g, squareWidth, squareHeight);
             }
         }
     }
 
-    private void paintLifeSquare(int x,int y, Color color, Graphics g, int width, int height ){
-
-                g.setColor(color);
-                g.fillRect(x, y, width, height);
-            
-                g.setColor(Color.DARK_GRAY);
-                g.drawRect(x, y, width, height);
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        repaint();
     }
+
+    private void paintLifeSquare(int x, int y, Color color, Graphics g, int width, int height) {
+        g.setColor(color);
+        g.fillRect(x, y, width, height);
+
+        g.setColor(Color.DARK_GRAY);
+        g.drawRect(x, y, width, height);
+    }
+    @Override
+    public Dimension getPreferredSize() {
+        return new Dimension(width, height);
 }
-    
+
+}

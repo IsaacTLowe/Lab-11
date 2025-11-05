@@ -20,6 +20,9 @@ public class Main extends JFrame {
         setLayout(new BorderLayout());
         add(gameTitle, BorderLayout.NORTH);
         add(gameBoard, BorderLayout.CENTER);
+        pack(); // make the JFrame fit the panel
+        setLocationRelativeTo(null); // optional: center window
+        setVisible(true);
         add(startButton, BorderLayout.SOUTH);
 
         gameBoard.addMouseListener(gameBoardController);

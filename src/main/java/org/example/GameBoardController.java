@@ -6,7 +6,7 @@ import java.awt.event.MouseListener;
 public class GameBoardController implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
-
+        Blackboard.getInstance().boxClikced(e.getX(),e.getY(), true);
     }
 
     @Override
