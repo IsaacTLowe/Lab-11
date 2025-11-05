@@ -16,7 +16,7 @@ public class Main extends JFrame {
         GameBoard gameBoard = new GameBoard();
         JButton startButton = new JButton("Start");
         GameBoardController gameBoardController = new GameBoardController();
-        MainController mainController = new MainController();
+        MainController mainController = new MainController(startButton);
 
         setLayout(new BorderLayout());
         add(gameTitle, BorderLayout.NORTH);

@@ -1,5 +1,6 @@
 package org.example;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,6 +14,12 @@ public class MainController implements ActionListener {
     private Thread gameThread;
     private GameLogic logic;
     private boolean running = false;
+    private JButton button;
+
+
+    public MainController(JButton button) {
+        this.button = button;
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -22,11 +29,13 @@ public class MainController implements ActionListener {
             running = true;
             gameThread.start();
             System.out.println("Simulation started...");
+            button.setText("Stop");
         } else {
             // Stop the loop gracefully
             logic.stop();
             running = false;
             System.out.println("Simulation stopped.");
+            button.setText("Start");
         }
     }
 }
