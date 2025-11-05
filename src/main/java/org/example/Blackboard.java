@@ -35,7 +35,7 @@ public class Blackboard extends PropertyChangeSupport {
         }
         return instance;
     }
-    public void boxClikced(int x, int y, boolean status){
+    public void boxClicked(int x, int y, boolean status){
         GameLogic boxClicked = new GameLogic();
         boxClicked.boxStatus(x,y, status);
     }

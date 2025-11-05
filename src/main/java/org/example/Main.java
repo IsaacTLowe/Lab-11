@@ -16,6 +16,7 @@ public class Main extends JFrame {
         GameBoard gameBoard = new GameBoard();
         JButton startButton = new JButton("Start");
         GameBoardController gameBoardController = new GameBoardController();
+        MainController mainController = new MainController();
 
         setLayout(new BorderLayout());
         add(gameTitle, BorderLayout.NORTH);
@@ -23,6 +24,8 @@ public class Main extends JFrame {
         add(startButton, BorderLayout.SOUTH);
 
         gameBoard.addMouseListener(gameBoardController);
+        startButton.addActionListener(mainController);
+
         Blackboard.getInstance().addPropertyChangeListener(gameBoard);
 
     }
