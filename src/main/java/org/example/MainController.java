@@ -11,11 +11,8 @@ import java.awt.event.ActionListener;
  */
 
 public class MainController implements ActionListener {
-    private Thread gameThread;
-    private GameLogic logic;
-    private boolean running = false;
-    private JButton button;
 
+    private JButton button;
 
     public MainController(JButton button) {
         this.button = button;
@@ -23,18 +20,7 @@ public class MainController implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (!running) {
-            logic = new GameLogic();
-            gameThread = new Thread(logic);
-            running = true;
-            gameThread.start();
-            System.out.println("Simulation started...");
-            button.setText("Stop");
-        } else {
-            logic.stop();
-            running = false;
-            System.out.println("Simulation stopped.");
-            button.setText("Start");
-        }
+        boolean running = Blackboard.getInstance().toggleSimulation();
+        button.setText(running ? "Stop" : "Start");
     }
 }

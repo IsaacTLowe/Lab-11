@@ -7,15 +7,48 @@ import java.util.*;
  * @author Amelia Harris and Isaac Lowe
  * @version 1.3
  */
-public class Blackboard extends PropertyChangeSupport {
+public class Blackboard extends PropertyChangeSupport{
 
     private static Blackboard instance;
     private Vector<Vector<LifeSquare>> grid;
+
+    private GameLogic logic;
+    private Thread logicThread;
 
     private Blackboard() {
         super(new Object());
         initializeGrid();
     }
+
+    public static Blackboard getInstance() {
+        if (instance == null) instance = new Blackboard();
+        return instance;
+    }
+
+    public void startSimulation() {
+        if (logicThread == null || !logicThread.isAlive()) {
+            logic = new GameLogic();
+            logicThread = new Thread(logic);
+            logicThread.start();
+        }
+    }
+
+    public void stopSimulation() {
+        if (logic != null) {
+            logic.stop();
+        }
+    }
+
+    public boolean toggleSimulation() {
+        if (logicThread != null && logicThread.isAlive()) {
+            stopSimulation();
+            return false; // stopped
+        } else {
+            startSimulation();
+            return true; // started
+        }
+    }
+
     private void initializeGrid() {
         grid = new Vector<>(100);
         for (int row = 0; row < 80; row++) {
@@ -27,12 +60,6 @@ public class Blackboard extends PropertyChangeSupport {
         }
     }
 
-    public static Blackboard getInstance(){
-        if(instance == null){
-            instance = new Blackboard();
-        }
-        return instance;
-    }
     public void boxClicked(int x, int y, boolean status){
         GameLogic boxClicked = new GameLogic();
         boxClicked.boxStatus(x,y, status);
