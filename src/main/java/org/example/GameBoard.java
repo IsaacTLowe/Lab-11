@@ -20,6 +20,7 @@ public class GameBoard extends JPanel implements PropertyChangeListener {
 
     public GameBoard() {
         setBackground(Color.GRAY);
+        Blackboard.getInstance().addPropertyChangeListener(this);
     }
     @Override
     protected void paintComponent(Graphics g) {

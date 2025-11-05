@@ -26,8 +26,6 @@ public class Main extends JFrame {
         gameBoard.addMouseListener(gameBoardController);
         startButton.addActionListener(mainController);
 
-        Blackboard.getInstance().addPropertyChangeListener(gameBoard);
-
     }
 
     static void main(String[] args) {
