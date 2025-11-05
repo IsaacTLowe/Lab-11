@@ -2,6 +2,11 @@ package org.example;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+/**
+ * Handles mouse clicks for the squares
+ * @author Amelia Harris and Isaac Lowe
+ * @version 1.0
+ */
 
 public class GameBoardController implements MouseListener {
     @Override

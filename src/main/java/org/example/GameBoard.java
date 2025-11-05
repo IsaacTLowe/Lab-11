@@ -7,14 +7,14 @@ import java.beans.PropertyChangeListener;
 /**
  * A gridded game board that observes BlackBoard
  * @author Amelia Harris and Isaac Lowe
- * @version 1.0
+ * @version 1.3
  */
 
 public class GameBoard extends JPanel implements PropertyChangeListener {
 
     // Grid dimensions
-    private final int cols = 80;
-    private final int rows = 100;
+    private final int cols = 100;
+    private final int rows = 80;
     private final int width = 1000;
     private final int height = 800;
 
@@ -34,8 +34,8 @@ public class GameBoard extends JPanel implements PropertyChangeListener {
 
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
-                int x = startX + col * squareWidth;
-                int y = startY + row * squareHeight;
+                int x =  col * squareWidth;
+                int y =  row * squareHeight;
 
                 Color color = Blackboard.getInstance().getGridAt(row, col).getColor();
                 paintLifeSquare(x, y, color, g, squareWidth, squareHeight);

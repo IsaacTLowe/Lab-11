@@ -4,7 +4,11 @@ import java.beans.PropertyChangeSupport;
 import java.awt.*;
 import javax.swing.*;
 import java.util.*;
-
+/**
+ * Acts as the database for the game; keeps track of LifeSquares status and sends updates to any observers
+ * @author Amelia Harris and Isaac Lowe
+ * @version 1.0
+ */
 public class Blackboard extends PropertyChangeSupport {
 
     private static Blackboard instance;
@@ -15,11 +19,11 @@ public class Blackboard extends PropertyChangeSupport {
         initializeGrid();
     }
     private void initializeGrid() {
-        grid = new Vector<>(80);
-        for (int row = 0; row < 100; row++) {
-            Vector<LifeSquare> rowVector = new Vector<>(80);
-            for (int col = 0; col < 80; col++) {
-                rowVector.add(new LifeSquare());  // default state
+        grid = new Vector<>(100);
+        for (int row = 0; row < 80; row++) {
+            Vector<LifeSquare> rowVector = new Vector<>(100);
+            for (int col = 0; col < 100; col++) {
+                rowVector.add(new LifeSquare()); 
             }
             grid.add(rowVector);
         }
