@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 /**
  * Controller class for Main, for this version just the start button
  * @author Amelia Harris and Isaac Lowe
- * @version 1.3
+ * @version 1.0
  */
 
 public class MainController implements ActionListener {
@@ -31,7 +31,6 @@ public class MainController implements ActionListener {
             System.out.println("Simulation started...");
             button.setText("Stop");
         } else {
-            // Stop the loop gracefully
             logic.stop();
             running = false;
             System.out.println("Simulation stopped.");

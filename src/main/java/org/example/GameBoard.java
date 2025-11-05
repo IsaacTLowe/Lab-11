@@ -28,10 +28,6 @@ public class GameBoard extends JPanel implements PropertyChangeListener {
         int squareWidth = width / cols;
         int squareHeight = height / rows;
 
-        // Compute offsets to center grid if panel size not perfectly divisible
-        int startX = (width - (squareWidth * cols)) / 2;
-        int startY = (height - (squareHeight * rows)) / 2;
-
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
                 int x =  col * squareWidth;
