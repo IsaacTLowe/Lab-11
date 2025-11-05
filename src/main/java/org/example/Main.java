@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
+ * Displays a game board, Title, and start button
  * @author Amelia Harris and Isaac Lowe
  * @version 1.0
  */
@@ -28,7 +29,7 @@ public class Main extends JFrame {
     static void main(String[] args) {
         Main main = new Main();
         main.setTitle("Lab 11");
-        main.setSize(1000,1000);
+        main.setSize(1000,800);
         main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         main.setVisible(true);
     }
