@@ -46,7 +46,6 @@ public class Blackboard extends PropertyChangeSupport {
     public void setLifeSquare(int row, int col, boolean status){
         grid.get(row).get(col).setAlive(status);
         Object[] changeInfo = {row, col};
-        System.out.println("Row: " + row + " Col: "+ col);
         firePropertyChange("Box Status Changed", null, changeInfo);
     }
 

@@ -20,15 +20,19 @@ public class GameLogic implements Runnable{
         }
     }
     public int getCol(int x) {
+        
         int squareWidth = width / cols;
-        int col = (x - 0) / squareWidth; // use same startX as GameBoard
+        int startX = (width - (squareWidth * cols)) / 2;
+        
+        int col = (x - startX) / squareWidth; // use same startX as GameBoard
         if (col < 0 || col >= cols) return -1;
         return col;
     }
 
     public int getRow(int y) {
         int squareHeight = height / rows;
-        int row = (y - 0) / squareHeight; // use same startY as GameBoard
+        int startY = (height - (squareHeight * rows)) / 2;
+        int row = (y - startY) / squareHeight; // use same startY as GameBoard
         if (row < 0 || row >= rows) return -1;
         return row;
     }

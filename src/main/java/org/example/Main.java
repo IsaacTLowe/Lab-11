@@ -13,19 +13,17 @@ public class Main extends JFrame {
 
     public Main() {
         JTextArea gameTitle = new JTextArea("Life Game");
-        JPanel gameBoard = new GameBoard();
+        GameBoard gameBoard = new GameBoard();
         JButton startButton = new JButton("Start");
         GameBoardController gameBoardController = new GameBoardController();
 
         setLayout(new BorderLayout());
         add(gameTitle, BorderLayout.NORTH);
         add(gameBoard, BorderLayout.CENTER);
-        pack(); // make the JFrame fit the panel
-        setLocationRelativeTo(null); // optional: center window
-        setVisible(true);
         add(startButton, BorderLayout.SOUTH);
 
         gameBoard.addMouseListener(gameBoardController);
+        Blackboard.getInstance().addPropertyChangeListener(gameBoard);
 
     }
 
