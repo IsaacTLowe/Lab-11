@@ -42,10 +42,10 @@ public class Blackboard extends PropertyChangeSupport{
     public boolean toggleSimulation() {
         if (logicThread != null && logicThread.isAlive()) {
             stopSimulation();
-            return false; // stopped
+            return false;
         } else {
             startSimulation();
-            return true; // started
+            return true;
         }
     }
 
